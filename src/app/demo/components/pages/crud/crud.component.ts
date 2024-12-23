@@ -29,11 +29,15 @@ export class CrudComponent implements OnInit {
     statuses: any[] = [];
 
     rowsPerPageOptions = [5, 10, 20];
+    
+    namePerson = "Evelin"
 
     constructor(private productService: ProductService, private messageService: MessageService) { }
 
     ngOnInit() {
-        this.productService.getProducts().then(data => this.products = data);
+        this.productService.getProducts().then((data) => { this.products = data
+            console.log(data)
+         });
 
         this.cols = [
             { field: 'product', header: 'Product' },
